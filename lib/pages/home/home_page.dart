@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mis_gastos/pages/budgets/budget_page.dart';
 import 'package:mis_gastos/pages/transactions/transactions_page.dart';
 import 'package:mis_gastos/routes/app_routes.dart';
 import 'package:mis_gastos/variables/destinations.dart';
@@ -34,6 +35,7 @@ class _HomePageState extends State<HomePage> {
         Center(
           child: Text('Ingresos'),
         ),
+        BudgetPage(),
       ][_currentIndex],
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.deepPurple,

@@ -22,5 +22,10 @@ class Destinations {
       label: 'Ingresos',
       icon: Icons.money_outlined,
     ),
+    Destinations(
+      iconSelected: Icons.attachment,
+      label: 'Presupuestos',
+      icon: Icons.attachment_outlined,
+    ),
   ];
 }

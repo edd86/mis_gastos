@@ -95,6 +95,7 @@ class _RegisterExpenseState extends State<RegisterExpense> {
             const SizedBox(height: 35),
             ElevatedButton.icon(
               label: Text('Registrar Gasto'),
+              icon: Icon(Icons.save, color: Colors.white),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.deepPurple,
                 foregroundColor: Colors.white,

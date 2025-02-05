@@ -39,4 +39,22 @@ class Budget {
       'user_id': userId,
     };
   }
+
+  Budget copyWith({
+    int? id,
+    DateTime? initDate,
+    DateTime? endDate,
+    double? amount,
+    double? expenseBudget,
+    int? userId,
+  }) {
+    return Budget(
+      id: id ?? this.id,
+      initDate: initDate ?? this.initDate,
+      endDate: endDate ?? this.endDate,
+      amount: amount ?? this.amount,
+      expenseBudget: expenseBudget ?? this.expenseBudget,
+      userId: userId ?? this.userId,
+    );
+  }
 }
