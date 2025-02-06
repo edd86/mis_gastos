@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mis_gastos/model/budget.dart';
 import 'package:mis_gastos/pages/widgets/global_widgets.dart';
+import 'package:mis_gastos/provider/budget_provider.dart';
 import 'package:mis_gastos/repository/budget_repository.dart';
 import 'package:mis_gastos/variables/utils.dart';
+import 'package:provider/provider.dart';
 
 class RegisterBudget extends StatefulWidget {
   const RegisterBudget({super.key});
@@ -126,14 +128,17 @@ class _RegisterBudgetState extends State<RegisterBudget> {
   }
 
   _budgetRegistered() {
-    GlobalWidgets().showSanckBar(context, 'Presupuesto registrado exitosamente');
+    GlobalWidgets()
+        .showSanckBar(context, 'Presupuesto registrado exitosamente');
+    final notifier = Provider.of<BudgetProvider>(context, listen: false);
+    notifier.updateBudgets();
     Navigator.pop(context);
   }
 
   _budgetNotRegistered() {
     GlobalWidgets().showSanckBar(context, 'Presupuesto no registrado');
   }
-  
+
   void _budgetNull() {
     GlobalWidgets().showSanckBar(context, 'Error al registrar el presupuesto');
   }

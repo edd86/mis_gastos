@@ -22,7 +22,7 @@ class TransactionProvider extends ChangeNotifier {
       double balanceTemp = 0;
       for (var transactionTemp in transactionsTemp) {
         balanceTemp += transactionTemp
-            .amount; //balanceTemp = balanceTemp + transactionTemp.amount
+            .amount;
       }
       _balance = balanceTemp;
       notifyListeners();

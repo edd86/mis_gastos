@@ -27,5 +27,10 @@ class Destinations {
       label: 'Presupuestos',
       icon: Icons.attachment_outlined,
     ),
+    Destinations(
+      iconSelected: Icons.snippet_folder,
+      label: 'Créditos',
+      icon: Icons.snippet_folder_outlined,
+    )
   ];
 }

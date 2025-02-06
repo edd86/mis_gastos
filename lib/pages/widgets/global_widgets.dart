@@ -12,6 +12,15 @@ class GlobalWidgets {
       ),
     );
   }
+
+  final textStyleCard = TextStyle(
+    color: Colors.white,
+    fontSize: 13,
+    fontWeight: FontWeight.bold,
+  );
+
+  final buttonStyle = ElevatedButton.styleFrom(
+    backgroundColor: Colors.deepPurple,
+    foregroundColor: Colors.white,
+  );
 }
-
-

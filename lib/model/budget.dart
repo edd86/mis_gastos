@@ -22,7 +22,7 @@ class Budget {
       id: map['id'],
       initDate: DateTime.parse(map['init_date']),
       endDate: DateTime.parse(map['end_date']),
-      amount: map['income_budget'],
+      amount: map['amount'],
       expenseBudget: map['expense_budget'],
       userId: map['user_id'],
     );
@@ -34,7 +34,7 @@ class Budget {
       'id': id,
       'init_date': initDate.toIso8601String(),
       'end_date': endDate.toIso8601String(),
-      'income_budget': amount,
+      'amount': amount,
       'expense_budget': expenseBudget,
       'user_id': userId,
     };

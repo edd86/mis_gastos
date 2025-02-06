@@ -39,4 +39,22 @@ class Debt {
       'user_id': userId,
     };
   }
+
+  Debt copyWith({
+    int? id,
+    String? creditor,
+    double? amount,
+    DateTime? date,
+    String? description,
+    int? userId,
+  }) {
+    return Debt(
+      id: id ?? this.id,
+      creditor: creditor ?? this.creditor,
+      amount: amount ?? this.amount,
+      date: date ?? this.date,
+      description: description ?? this.description,
+      userId: userId ?? this.userId,
+    );
+  }
 }
