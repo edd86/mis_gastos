@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mis_gastos/provider/budget_provider.dart';
+import 'package:mis_gastos/provider/debt_provider.dart';
 import 'package:mis_gastos/provider/transaction_provider.dart';
 import 'package:mis_gastos/provider/user_provider.dart';
 import 'package:provider/provider.dart';
@@ -16,6 +17,9 @@ void main() {
     ChangeNotifierProvider<BudgetProvider>(
       create: (_) => BudgetProvider(),
     ),
+    ChangeNotifierProvider<DebtProvider>(
+      create: (_) => DebtProvider(),
+    )
   ], child: const MainApp()));
 }
 

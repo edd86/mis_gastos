@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mis_gastos/model/debt.dart';
 import 'package:mis_gastos/pages/widgets/global_widgets.dart';
+import 'package:mis_gastos/provider/debt_provider.dart';
 import 'package:mis_gastos/repository/debt_repository.dart';
 import 'package:mis_gastos/variables/global_variables.dart';
 import 'package:mis_gastos/variables/utils.dart';
+import 'package:provider/provider.dart';
 
 class RegisterDebt extends StatefulWidget {
   const RegisterDebt({super.key});
@@ -138,6 +140,8 @@ class _RegisterDebtState extends State<RegisterDebt> {
 
   void _debtRegistered() {
     GlobalWidgets().showSanckBar(context, 'Crédito registrado exitosamente');
+    final notifier = Provider.of<DebtProvider>(context, listen: false);
+    notifier.getDebts();
     Navigator.pop(context);
   }
 
