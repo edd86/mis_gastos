@@ -11,4 +11,22 @@ class IncomeRepository {
       return null;
     }
   }
+
+  Future<List<Income>?> getIncomes() async {
+    List<Income>? incomesTemp = [];
+    try {
+      final db = await DatabaseHelper().database;
+      final incomes = await db.query('incomes');
+      if (incomes.isEmpty) {
+        return [];
+      }
+      for (var income in incomes) {
+        incomesTemp.add(Income.fromMap(income));
+      }
+      return incomesTemp;
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
 }

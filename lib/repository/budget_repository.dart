@@ -31,10 +31,23 @@ class BudgetRepository {
   Future<int?> updateExpenseBudget(double amount, int id) async {
     try {
       final db = await DatabaseHelper().database;
-      final budgetTemp = await db.query('budgets', where: 'id = ?', whereArgs: [id]);
+      final budgetTemp =
+          await db.query('budgets', where: 'id = ?', whereArgs: [id]);
       final budget = Budget.fromMap(budgetTemp.first);
       budget.expenseBudget = budget.expenseBudget + amount;
-      int cont = await db.update('budgets', budget.toMap(), where: 'id = ?', whereArgs: [id]);
+      int cont = await db
+          .update('budgets', budget.toMap(), where: 'id = ?', whereArgs: [id]);
+      return cont;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  Future<int?> updateBudget(Budget budget) async {
+    try {
+      final db = await DatabaseHelper().database;
+      final cont = await db.update('budgets', budget.toMap(),
+          where: 'id = ?', whereArgs: [budget.id]);
       return cont;
     } catch (e) {
       return null;

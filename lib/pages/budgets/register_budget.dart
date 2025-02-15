@@ -3,6 +3,7 @@ import 'package:mis_gastos/model/budget.dart';
 import 'package:mis_gastos/pages/widgets/global_widgets.dart';
 import 'package:mis_gastos/provider/budget_provider.dart';
 import 'package:mis_gastos/repository/budget_repository.dart';
+import 'package:mis_gastos/variables/global_variables.dart';
 import 'package:mis_gastos/variables/utils.dart';
 import 'package:provider/provider.dart';
 
@@ -87,13 +88,13 @@ class _RegisterBudgetState extends State<RegisterBudget> {
                 foregroundColor: Colors.white,
               ),
               onPressed: () async {
-                final newBudget = Budget(
+                final budget = await BudgetRepository().addBudget(Budget(
                   initDate: _initialDate,
                   endDate: _finalDate,
                   amount: double.parse(_amountController.text),
                   expenseBudget: 0.0,
-                );
-                final budget = await BudgetRepository().addBudget(newBudget);
+                  userId: userLogged!.id,
+                ));
                 if (budget == null) {
                   _budgetNull();
                 } else {

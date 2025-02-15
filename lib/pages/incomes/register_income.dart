@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mis_gastos/model/income.dart';
 import 'package:mis_gastos/model/transaction.dart';
 import 'package:mis_gastos/pages/widgets/global_widgets.dart';
+import 'package:mis_gastos/provider/incomes_provider.dart';
 import 'package:mis_gastos/provider/transaction_provider.dart';
 import 'package:mis_gastos/repository/income_repository.dart';
 import 'package:mis_gastos/repository/transaction_repository.dart';
@@ -159,6 +160,8 @@ class _RegisterIncomeState extends State<RegisterIncome> {
 
   void _incomeRegistered() {
     final notifier = Provider.of<TransactionProvider>(context, listen: false);
+    final incomeNotifier = Provider.of<IncomesProvider>(context, listen: false);
+    incomeNotifier.getIncomes();
     notifier.updateTransactions();
     GlobalWidgets().showSanckBar(context, 'Ingreso registrado exitosamente');
     Navigator.pop(context);

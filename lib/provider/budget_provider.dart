@@ -6,7 +6,7 @@ class BudgetProvider extends ChangeNotifier {
   List<Budget>? _budgets = [];
 
   BudgetProvider() {
-    _getBudgets();
+    updateBudgets();
   }
 
   List<Budget>? get budgets => _budgets;
